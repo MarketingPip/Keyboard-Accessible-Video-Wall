@@ -1,5 +1,201 @@
+<html lang="en" class=""><head>
+
+  <meta charset="UTF-8">
+  <title>Keyboard-Accessible-Video-Wall</title>
+
+  <meta name="robots" content="index">
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+  <link rel="mask-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+  <link rel="canonical" href="https://codepen.io/lonetraceur/pen/ZWmPvN">
+
+  
+<style type="text/css" class="INLINE_PEN_STYLESHEET_ID">body { 
+    margin: 0;   /* Remove body margins */
+}
+html, body {
+            height: 100vh;
+  overflow:hidden;
+        }
+
+i
+          font-family: 'Lato';  
+          font-weight: 100;
+          width: 100%;
+        }
+
+        p {
+            font-size: large;
+            margin-top: 20px;
+        }
+        button {
+            color: #000;
+        }
+        /* General Layout */
+        .layout {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+  background:rgba(8, 53, 72, 1);
+            height: 100vh;
+            width: 100vw;
+          overflow:scroll;
+        }
+
+        /* Sidemenu */
+        .sidemenu {
+              background: #0f1317;
+            color: #fff;
+            width: 300px;
+            z-index: 2;
+        }
+.sidemenu_info {
+           background: #0f1317;
+            color: #fff;
+            width: 300px;
+            z-index: 2;
+          
+             position: fixed;
+  
+    display: flex;
+    
+    height: 100vh;
+   
+          
+}
+
+                .sidemenu__logo{
+                    display: block;
+                    background: #f3a42f;
+                    height:100px;
+                }
+                .sidemenu__title {
+                    margin:20px;
+                  
+                }
+
+     
+
+
+
+
+        /* Settings Menu */
+        .settings-menu {
+            width: 300px;
+            background: #616161;
+            z-index: 1;
+        }
+
+        .fade-transition {
+            transition-property: all;
+            transition-duration: 0.5s;
+            transition-timing-function: ease;
+        }
+        .fade-enter {
+            width: 0 ;
+        }
+        .fade-leave {
+            width: 0;
+        }
+
+        .fade-transition * {
+            transition-property: opacity;
+            transition-duration: 0.5s;
+            transition-timing-function: ease;
+            transition-delay: 0.5s;
+        }
+        .fade-enter * {
+            opacity: 0;
+            transition-delay: 0.5s;
+        }
+        .fade-leave * {
+            opacity: 0;
+            transition-duration: 0s;
+            transition-delay: 0s;
+        }
+
+        .settings-menu > * {
+            margin: 20px;
+            color: #fff;
+        }
+
+
+        /* Content */
+        .flexcontainer-content {
+            flex-basis: 50vw;
+            flex-grow: 1;
+            flex-shrink: 1;
+
+           background:rgba(8, 53, 72, 1);
+            padding:40px;
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+     height:100vh;
+        }
+
+            .flexitem-grid {
+                flex-grow: 0;
+                flex-shrink: 0;
+
+             
+                color: #fff;
+                width:15vmax;
+                height:21vmax;
+                
+              
+                margin-bottom:40px;
+                margin-right:5px;
+            }
+
+         .flexitem-grid img {
+           width:100%;
+           height:100%;
+
+            }
+
+      /* different layout theme*/
+            .flexitem-grid-theme-2 {
+      height:200px;
+            }
+
+ .flexitem-grid-theme-2 img {
+     width:100%;
+           height:100%;
+
+            }
+
+.flexitem-grid img:focus,
+.flexitem-grid img:hover,
+.flexitem-grid img:active {
+  box-shadow: .2em .5em .5em rgba(0, 0, 0, 0.4);
+  transform: scale(1.1);
+  border: 2px solid cyan;
+  outline: 2px solid cyan;
+}
+
+.mini-music-playlist-scrollbar {
+  float: left;
+  overflow-y: scroll;
+    overflow-x: hidden;
+}
+.mini-music-playlist-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.mini-music-playlist-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #434343;
+}
+.mini-music-playlist-scrollbar::-webkit-scrollbar-track {
+  background:black;
+  
+}
+</style></head>
 
 <body translate="no">
+  
+
   
 
     <meta charset="utf-8">
@@ -16,9 +212,9 @@
             <div class="sidemenu__title">
                 <h2>Keyboard Accesible Movie Wall - use left or right keys! </h2>
 
-                <h3 id="title"></h3>
+                <h3 id="title">Coal Miner's Daughter</h3>
               
-              <p id="description"> </p>
+              <p id="description">Biography of Loretta Lynn, a country and western singer that came from poverty to fame.</p>
               <p>This was made by Jared Van Valkengoed </p>
             </div>
           </div>
@@ -31,27 +227,27 @@
 
 
         <div class="flexcontainer-content">
-           <div class="flexitem-grid" value="The Simpsons" type="tv"><img tabindex="0" src=""></div>
+           <div class="flexitem-grid" value="The Simpsons" type="tv" tabindex="-1"><img tabindex="0" src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/zI3E2a3WYma5w8emI35mgq5Iurx.jpg"></div>
           
-            <div class="flexitem-grid"  value="Rick And Morty" type="tv"><img tabindex="0" src=""></div>
+            <div class="flexitem-grid" value="Rick And Morty" type="tv" tabindex="-1"><img tabindex="0" src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/cvhNj9eoRBe5SxjCbQTkh05UP5K.jpg"></div>
           
-            <div class="flexitem-grid" value="The Simpsons" type="movie"><img tabindex="0" src=""></div>
+            <div class="flexitem-grid" value="The Simpsons" type="movie" tabindex="-1"><img tabindex="0" src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/gzb6P78zeFTnv9eoFYnaJ2YrZ5q.jpg"></div>
           
-            <div class="flexitem-grid"  value="8 mile" type="movie"><img tabindex="0" src=""></div>
+            <div class="flexitem-grid" value="8 mile" type="movie" tabindex="-1"><img tabindex="0" src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/7BmQj8qE1FLuLTf7Xjf9sdIHzoa.jpg"></div>
                    
-                   <div class="flexitem-grid"  value="A Goofy Movie" type="movie"><img tabindex="0" src=""></div>
+                   <div class="flexitem-grid" value="A Goofy Movie" type="movie" tabindex="-1"><img tabindex="0" src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/bycmMhO3iIoEDzP768sUjq2RV4T.jpg"></div>
           
- <div class="flexitem-grid"   value="Coal Miners Daughter" type="movie"><img tabindex="0" src=""></div>         
+ <div class="flexitem-grid" value="Coal Miners Daughter" type="movie" tabindex="-1"><img tabindex="0" src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/sNOMyIYP2wz1sFKSJmlKPjYz6ok.jpg"></div>         
           
-           <div class="flexitem-grid"  value="The Wolf of Wall Street (2013)" type="movie"><img tabindex="0" src=""></div>         
+           <div class="flexitem-grid" value="The Wolf of Wall Street (2013)" type="movie" tabindex="-1"><img tabindex="0" src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/34m2tygAYBGqA9MXKhRDtzYd4MR.jpg"></div>         
         
-   <div class="flexitem-grid"   value="I Love You Man" type="movie"><img tabindex="0" src=""></div>      
+   <div class="flexitem-grid" value="I Love You Man" type="movie" tabindex="-1"><img tabindex="0" src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/xr4zAYsvgTzvMMiWu6qCAP9WBer.jpg"></div>      
           
-        <div class="flexitem-grid"   value="Cheech and Chong" type="movie"><img tabindex="0" src=""></div>         
+        <div class="flexitem-grid" value="Cheech and Chong" type="movie" tabindex="-1"><img tabindex="0" src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/hetHB9L84jOLxajKZLKgaNBRDJ9.jpg"></div>         
           
-           <div class="flexitem-grid"   value="King of The Hill" type="tv"><img tabindex="0" src=""></div>   
+           <div class="flexitem-grid" value="King of The Hill" type="tv" tabindex="-1"><img tabindex="0" src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/3MnkwPdqQ4if7HL4rYTy6eUyq8q.jpg"></div>   
           
-            <div class="flexitem-grid"   value="King of The Hill" type="tv"><img tabindex="0" src=""></div>   
+            <div class="flexitem-grid" value="King of The Hill" type="tv" tabindex="-1"><img tabindex="0" src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/3MnkwPdqQ4if7HL4rYTy6eUyq8q.jpg"></div>   
          
         </div> <!-- content -->
 
@@ -65,5 +261,6 @@
 
 
 
- 
+
+
 </body></html>
